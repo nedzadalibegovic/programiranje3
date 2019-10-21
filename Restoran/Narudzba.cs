@@ -16,12 +16,24 @@ namespace Restoran {
             this.isporuceno = false;
         }
 
+        private void updateCijena() {
+            double ukupno = 0;
+
+            foreach (var namirnica in namirnice) {
+                ukupno += namirnica.Key.cijena * namirnica.Value;
+            }
+
+            cijena = ukupno;
+        }
+
         public void dodajNamirnicu(Namirnica namirnica, int kolicina) {
             if (namirnice.ContainsKey(namirnica)) {
                 namirnice[namirnica] += kolicina;
             } else {
                 namirnice.Add(namirnica, kolicina);
             }
+
+            updateCijena();
         }
     }
 }
