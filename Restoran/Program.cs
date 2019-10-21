@@ -1,11 +1,8 @@
 ﻿using System;
 
-namespace Restoran
-{
-    class Program
-    {
-        static void napraviMeni(Restoran restoran)
-        {
+namespace Restoran {
+    class Program {
+        static void napraviMeni(Restoran restoran) {
             restoran.dodajPice("Coca-Cola", 3.00);
             restoran.dodajPice("Cockta", 3.00);
             restoran.dodajPice("Cedevita", 2.50);
@@ -33,8 +30,7 @@ namespace Restoran
             restoran.dodajJelo("Karadzordjeva snicla", 8.50);
         }
 
-        static void Main(string[] args)
-        {
+        static void Main(string[] args) {
             Restoran maksumic = new Restoran("Maksumic", "Jablanica bb", "33445566");
             napraviMeni(maksumic);
 
