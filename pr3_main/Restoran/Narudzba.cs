@@ -26,6 +26,17 @@ namespace Restoran {
             cijena = ukupno;
         }
 
+        public void ispisRacuna() {
+            Console.WriteLine($"Klijent:\n{klijent}");
+            Console.WriteLine("Namirnice:");
+
+            foreach (var namirnica in namirnice) {
+                Console.WriteLine($"{namirnica.Key} Kolicina: {namirnica.Value}");
+            }
+
+            Console.WriteLine($"Konacna cijena: {cijena} KM");
+        }
+
         public void dodajNamirnicu(Namirnica namirnica, int kolicina) {
             if (namirnice.ContainsKey(namirnica)) {
                 namirnice[namirnica] += kolicina;

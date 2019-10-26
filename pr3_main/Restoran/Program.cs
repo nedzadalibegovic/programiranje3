@@ -36,13 +36,15 @@ namespace Restoran {
 
             //Console.WriteLine(maksumic.ToString());
 
-            Klijent harun = new Klijent("Harun", "Suckblyatovic", "Marsala Tita 76", "666");
+            Klijent harun = new Klijent("Harun", "Suckblyatovic", "Marsala Tita 76", "+666");
 
             Narudzba narudzba = new Narudzba(harun);
 
             narudzba.dodajNamirnicu(maksumic.meni.jela[5], 2);
             narudzba.dodajNamirnicu(maksumic.meni.jela[5], 3);
             narudzba.dodajNamirnicu(maksumic.meni.pica[5], 1);
+
+            narudzba.ispisRacuna();
         }
     }
 }
