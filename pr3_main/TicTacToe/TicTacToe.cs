@@ -32,6 +32,95 @@ namespace TicTacToe {
             }
 
             NumberOfMoves++;
+
+            if (CheckWin()) {
+                Form form = new Form();
+                form.ShowDialog();
+                Reset();
+            }
+        }
+
+        private bool CheckWin() {
+            // 1st row
+            if (CheckSeq(button1, button2, button3)) {
+                MarkSeq(button1, button2, button3);
+                return true;
+            }
+
+            // 2nd row
+            if (CheckSeq(button4, button5, button6)) {
+                MarkSeq(button4, button5, button6);
+                return true;
+            }
+
+            // 3rd row
+            if (CheckSeq(button7, button8, button9)) {
+                MarkSeq(button7, button8, button9);
+                return true;
+            }
+
+            // main diagonal
+            if (CheckSeq(button3, button5, button7)) {
+                MarkSeq(button3, button5, button7);
+                return true;
+            }
+
+            // other diagonal
+            if (CheckSeq(button1, button5, button9)) {
+                MarkSeq(button1, button5, button9);
+                return true;
+            }
+
+            // 1st column
+            if (CheckSeq(button1, button4, button7)) {
+                MarkSeq(button1, button4, button7);
+                return true;
+            }
+
+            // 2nd column
+            if (CheckSeq(button2, button5, button8)) {
+                MarkSeq(button2, button5, button8);
+                return true;
+            }
+
+            // 3rd column
+            if (CheckSeq(button3, button6, button9)) {
+                MarkSeq(button3, button6, button9);
+                return true;
+            }
+
+            if (NumberOfMoves == 9) {
+                Reset();
+            }
+
+            return false;
+        }
+
+        private bool CheckSeq(Button button1, Button button2, Button button3) {
+            if (string.IsNullOrEmpty(button1.Text) || string.IsNullOrEmpty(button2.Text) || string.IsNullOrEmpty(button3.Text)) {
+                return false;
+            }
+
+            if (button1.Text == button2.Text && button2.Text == button3.Text) {
+                return true;
+            }
+
+            return false;
+        }
+
+        private void MarkSeq(params Button[] list) {
+            foreach (var button in list) {
+                button.ForeColor = Color.Red;
+            }
+        }
+
+        private void Reset() {
+            foreach (var button in Controls.OfType<Button>()) {
+                button.Text = "";
+                button.ForeColor = Color.Black;
+            }
+
+            NumberOfMoves = 0;
         }
     }
 }
