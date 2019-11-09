@@ -34,8 +34,12 @@ namespace TicTacToe {
             NumberOfMoves++;
 
             if (CheckWin()) {
-                Form form = new Form();
-                form.ShowDialog();
+                if ((NumberOfMoves - 1) % 2 == 0) {
+                    MessageBox.Show("X wins!");
+                } else {
+                    MessageBox.Show("O wins!");
+                }
+
                 Reset();
             }
         }
@@ -90,6 +94,7 @@ namespace TicTacToe {
             }
 
             if (NumberOfMoves == 9) {
+                MessageBox.Show("It's a draw!");
                 Reset();
             }
 
