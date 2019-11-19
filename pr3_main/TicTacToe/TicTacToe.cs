@@ -12,9 +12,18 @@ namespace TicTacToe {
     public partial class TicTacToe : Form {
         public int NumberOfMoves { get; set; }
 
+        public delegate void WinnerHandler(string Winner);
+        public static event WinnerHandler OnWin;
+
         public TicTacToe() {
             InitializeComponent();
             NumberOfMoves = 0;
+
+            OnWin += TicTacToe_OnWin;
+        }
+
+        private void TicTacToe_OnWin(string Winner) {
+            MessageBox.Show(Winner);
         }
 
         private void markMove(object sender, EventArgs e) {
@@ -35,9 +44,9 @@ namespace TicTacToe {
 
             if (CheckWin()) {
                 if ((NumberOfMoves - 1) % 2 == 0) {
-                    MessageBox.Show("X wins!");
+                    OnWin("X wins!");
                 } else {
-                    MessageBox.Show("O wins!");
+                    OnWin("O wins!");
                 }
 
                 Reset();
