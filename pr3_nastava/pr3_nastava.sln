@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vjezbe_2019_11_09_wfa", "vj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentskaSluzba", "StudentskaSluzba\StudentskaSluzba.csproj", "{214C4158-78F1-4327-8301-894F356E54A3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "predavanje_2019_11_20", "predavanje_2019_11_20\predavanje_2019_11_20.csproj", "{21252919-2847-47D2-A33D-637D627091DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{214C4158-78F1-4327-8301-894F356E54A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{214C4158-78F1-4327-8301-894F356E54A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{214C4158-78F1-4327-8301-894F356E54A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21252919-2847-47D2-A33D-637D627091DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21252919-2847-47D2-A33D-637D627091DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21252919-2847-47D2-A33D-637D627091DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21252919-2847-47D2-A33D-637D627091DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
