@@ -17,9 +17,8 @@ namespace predavanje_2019_11_20 {
         private void btnSpremi_Click(object sender, EventArgs e) {
             Korisnik korisnik = new Korisnik() { Ime = txtIme.Text, Prezime = txtPrezime.Text, Password = txtPassword.Text, Username = txtUsername.Text, Administrator = chkAdmin.Checked };
 
-            DBInMemory.korisnici.Add(korisnik);
-
-            DialogResult = DialogResult.OK;
+            DBInMemory.DodajKorisnika(korisnik);
+            Close();
         }
     }
 }

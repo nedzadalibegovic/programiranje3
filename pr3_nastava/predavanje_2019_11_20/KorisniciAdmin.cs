@@ -13,6 +13,12 @@ namespace predavanje_2019_11_20 {
         public KorisniciAdmin() {
             InitializeComponent();
             dgwKorisnici.AutoGenerateColumns = false;
+            DBInMemory.DodanKorisnik += DBInMemory_DodanKorisnik;
+        }
+
+        private void DBInMemory_DodanKorisnik() {
+            dgwKorisnici.DataSource = null;
+            dgwKorisnici.DataSource = DBInMemory.korisnici;
         }
 
         private void KorisniciAdmin_Load(object sender, EventArgs e) {
@@ -21,11 +27,7 @@ namespace predavanje_2019_11_20 {
 
         private void btnNoviKorisnik_Click(object sender, EventArgs e) {
             frmRegistracija forma = new frmRegistracija();
-
-            if (forma.ShowDialog() == DialogResult.OK) {
-                dgwKorisnici.DataSource = null;
-                dgwKorisnici.DataSource = DBInMemory.korisnici;
-            }
+            forma.ShowDialog();
         }
 
         private void txtPretraga_TextChanged(object sender, EventArgs e) {
