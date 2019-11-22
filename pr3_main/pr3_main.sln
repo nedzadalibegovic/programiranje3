@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restoran", "Restoran\Restor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToe", "TicTacToe\TicTacToe.csproj", "{CE840404-C3D4-46D5-A760-0343175D21CA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegistrationLogin", "RegistrationLogin\RegistrationLogin.csproj", "{B60169DE-2184-4670-9438-435A089BEC54}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CE840404-C3D4-46D5-A760-0343175D21CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE840404-C3D4-46D5-A760-0343175D21CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE840404-C3D4-46D5-A760-0343175D21CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B60169DE-2184-4670-9438-435A089BEC54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B60169DE-2184-4670-9438-435A089BEC54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B60169DE-2184-4670-9438-435A089BEC54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B60169DE-2184-4670-9438-435A089BEC54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
