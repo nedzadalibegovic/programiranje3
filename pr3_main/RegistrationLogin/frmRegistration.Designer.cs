@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.txtFirst = new System.Windows.Forms.TextBox();
             this.txtLast = new System.Windows.Forms.TextBox();
@@ -34,6 +35,8 @@
             this.txtConfirm = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnRegister = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -51,6 +54,7 @@
             this.txtFirst.Name = "txtFirst";
             this.txtFirst.Size = new System.Drawing.Size(169, 20);
             this.txtFirst.TabIndex = 0;
+            this.txtFirst.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_Validating);
             // 
             // txtLast
             // 
@@ -58,6 +62,7 @@
             this.txtLast.Name = "txtLast";
             this.txtLast.Size = new System.Drawing.Size(169, 20);
             this.txtLast.TabIndex = 1;
+            this.txtLast.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_Validating);
             // 
             // label2
             // 
@@ -74,6 +79,7 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(169, 20);
             this.txtUsername.TabIndex = 2;
+            this.txtUsername.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_Validating);
             // 
             // label3
             // 
@@ -91,6 +97,7 @@
             this.txtPassword.Size = new System.Drawing.Size(169, 20);
             this.txtPassword.TabIndex = 3;
             this.txtPassword.UseSystemPasswordChar = true;
+            this.txtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_Validating);
             // 
             // label4
             // 
@@ -108,6 +115,7 @@
             this.txtConfirm.Size = new System.Drawing.Size(169, 20);
             this.txtConfirm.TabIndex = 4;
             this.txtConfirm.UseSystemPasswordChar = true;
+            this.txtConfirm.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_Validating);
             // 
             // label5
             // 
@@ -128,6 +136,10 @@
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // frmRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -144,9 +156,14 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtFirst);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmRegistration";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmRegistration";
+            this.Text = "Registration";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,5 +182,6 @@
         private System.Windows.Forms.TextBox txtConfirm;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnRegister;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
