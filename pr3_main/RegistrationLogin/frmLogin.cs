@@ -30,21 +30,14 @@ namespace RegistrationLogin {
             }
         }
 
-        private void txtUsername_Validating(object sender, CancelEventArgs e) {
-            if (string.IsNullOrEmpty(txtUsername.Text)) {
-                errorProvider.SetError(txtUsername, "Username field empty!");
-                e.Cancel = true;
-            } else {
-                errorProvider.SetError(txtUsername, null);
-            }
-        }
+        private void textBox_Validating(object sender, CancelEventArgs e) {
+            TextBox textBox = sender as TextBox;
 
-        private void txtPassword_Validating(object sender, CancelEventArgs e) {
-            if (string.IsNullOrEmpty(txtPassword.Text)) {
-                errorProvider.SetError(txtPassword, "Password field empty!");
+            if (string.IsNullOrEmpty(textBox.Text)) {
+                errorProvider.SetError(textBox, "Field is required!");
                 e.Cancel = true;
             } else {
-                errorProvider.SetError(txtPassword, null);
+                errorProvider.SetError(textBox, null);
             }
         }
     }

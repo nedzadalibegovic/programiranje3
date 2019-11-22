@@ -57,7 +57,7 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(155, 20);
             this.txtUsername.TabIndex = 0;
-            this.txtUsername.Validating += new System.ComponentModel.CancelEventHandler(this.txtUsername_Validating);
+            this.txtUsername.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_Validating);
             // 
             // txtPassword
             // 
@@ -66,7 +66,7 @@
             this.txtPassword.Size = new System.Drawing.Size(155, 20);
             this.txtPassword.TabIndex = 1;
             this.txtPassword.UseSystemPasswordChar = true;
-            this.txtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtPassword_Validating);
+            this.txtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_Validating);
             // 
             // btnLogin
             // 
@@ -98,7 +98,7 @@
             this.Name = "frmLogin";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmLogin";
+            this.Text = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
