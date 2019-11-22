@@ -38,17 +38,22 @@ namespace RegistrationLogin {
 
         public static void Register(User user) {
             Users.Add(user);
-            UserRegistered(user);
+
+            UserRegistered?.Invoke(user);
         }
 
         public static User Login(string username, string password) {
             User user = Users.Find(x => x.ValidateCredentials(username, password));
 
             if (user != null) {
-                UserLoggedIn(user);
+                UserLoggedIn?.Invoke(user);
             }
 
             return user;
+        }
+
+        public static List<User> QueryString(string query) {
+            return Users.FindAll(user => user.FirstName.ToLower().Contains(query.ToLower()) || user.LastName.ToLower().Contains(query.ToLower()));
         }
     }
 }
