@@ -16,8 +16,8 @@ namespace RegistrationLogin {
         }
 
         private void btnRegister_Click(object sender, EventArgs e) {
-            if (ValidateChildren()) {
-                User user = new User(txtFirst.Text, txtLast.Text, txtUsername.Text, txtPassword.Text);
+            if (ValidateChildren() && ValidatePicture()) {
+                User user = new User(txtFirst.Text, txtLast.Text, txtUsername.Text, txtPassword.Text, picImage.Image);
                 Database.Register(user);
                 Close();
             }
@@ -41,6 +41,22 @@ namespace RegistrationLogin {
             } else {
                 errorProvider.SetError(txtConfirm, null);
             }
+        }
+
+        private void btnLoadImage_Click(object sender, EventArgs e) {
+            if (fileDialog.ShowDialog() == DialogResult.OK) {
+                picImage.Image = Image.FromFile(fileDialog.FileName);
+            }
+        }
+
+        private bool ValidatePicture() {
+            if (picImage.Image == null) {
+                errorProvider.SetError(picImage, "Image required!");
+            } else {
+                errorProvider.SetError(picImage, null);
+            }
+
+            return picImage.Image != null;
         }
     }
 }

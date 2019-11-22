@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,12 +11,14 @@ namespace RegistrationLogin {
         public string LastName { get; set; }
         public string Username { get; set; }
         public string Password { private get; set; }
+        public Image AccountPicture { get; set; }
 
-        public User(string FirstName, string LastName, string Username, string Password) {
-            this.FirstName = FirstName;
-            this.LastName = LastName;
-            this.Username = Username;
-            this.Password = Password;
+        public User(string first, string last, string username, string password, Image image) {
+            FirstName = first;
+            LastName = last;
+            Username = username;
+            Password = password;
+            AccountPicture = image;
         }
 
         public bool ValidateCredentials(string Username, string Password) {
@@ -30,10 +33,10 @@ namespace RegistrationLogin {
         public static event Action<User> UserLoggedIn;
 
         static Database() {
-            Users.Add(new User("Nedzad", "Alibegovic", "nedzad", "qwerty"));
-            Users.Add(new User("Harun", "Sabljakovic", "harun", "qwertz"));
-            Users.Add(new User("Haris", "Mlaco", "haris", "qweasd"));
-            Users.Add(new User("Adis", "Kubat", "adis", "azerty"));
+            Users.Add(new User("Nedzad", "Alibegovic", "nedzad", "qwerty", null));
+            Users.Add(new User("Harun", "Sabljakovic", "harun", "qwertz", null));
+            Users.Add(new User("Haris", "Mlaco", "haris", "qweasd", null));
+            Users.Add(new User("Adis", "Kubat", "adis", "azerty", null));
         }
 
         public static void Register(User user) {

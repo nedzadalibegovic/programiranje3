@@ -36,7 +36,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnRegister = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.picImage = new System.Windows.Forms.PictureBox();
+            this.btnLoadImage = new System.Windows.Forms.Button();
+            this.fileDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picImage)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -128,7 +132,7 @@
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(25, 259);
+            this.btnRegister.Location = new System.Drawing.Point(25, 400);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(169, 43);
             this.btnRegister.TabIndex = 5;
@@ -140,11 +144,38 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // picImage
+            // 
+            this.picImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picImage.Location = new System.Drawing.Point(25, 255);
+            this.picImage.Name = "picImage";
+            this.picImage.Size = new System.Drawing.Size(169, 105);
+            this.picImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picImage.TabIndex = 9;
+            this.picImage.TabStop = false;
+            // 
+            // btnLoadImage
+            // 
+            this.btnLoadImage.Location = new System.Drawing.Point(25, 366);
+            this.btnLoadImage.Name = "btnLoadImage";
+            this.btnLoadImage.Size = new System.Drawing.Size(169, 23);
+            this.btnLoadImage.TabIndex = 10;
+            this.btnLoadImage.Text = "Load Image...";
+            this.btnLoadImage.UseVisualStyleBackColor = true;
+            this.btnLoadImage.Click += new System.EventHandler(this.btnLoadImage_Click);
+            // 
+            // fileDialog
+            // 
+            this.fileDialog.FileName = "fileDialog";
+            // 
             // frmRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(219, 312);
+            this.ClientSize = new System.Drawing.Size(219, 453);
+            this.Controls.Add(this.btnLoadImage);
+            this.Controls.Add(this.picImage);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.txtConfirm);
             this.Controls.Add(this.label5);
@@ -164,6 +195,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registration";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -183,5 +215,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.Button btnLoadImage;
+        private System.Windows.Forms.PictureBox picImage;
+        private System.Windows.Forms.OpenFileDialog fileDialog;
     }
 }
