@@ -1,31 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace RegistrationLogin {
-    class User {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Username { get; set; }
-        public string Password { private get; set; }
-        public Image AccountPicture { get; set; }
-
-        public User(string first, string last, string username, string password, Image image) {
-            FirstName = first;
-            LastName = last;
-            Username = username;
-            Password = password;
-            AccountPicture = image;
-        }
-
-        public bool ValidateCredentials(string Username, string Password) {
-            return Username == this.Username && Password == this.Password;
-        }
-    }
-
     static class Database {
         public static List<User> Users { get; set; } = new List<User>();
 

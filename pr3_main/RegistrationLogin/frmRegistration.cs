@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,11 +16,15 @@ namespace RegistrationLogin {
         }
 
         private void btnRegister_Click(object sender, EventArgs e) {
-            if (ValidateChildren() && ValidatePicture()) {
-                User user = new User(txtFirst.Text, txtLast.Text, txtUsername.Text, txtPassword.Text, picImage.Image);
+            if (ValidateChildren()) {
+                User user = new User(txtFirst.Text, txtLast.Text, txtUsername.Text, txtPassword.Text, User.ImageToByteArray(picImage.Image));
                 Database.Register(user);
                 Close();
             }
+        }
+
+        public override bool ValidateChildren() {
+            return ValidatePicture() && base.ValidateChildren();
         }
 
         private void textBox_Validating(object sender, CancelEventArgs e) {
