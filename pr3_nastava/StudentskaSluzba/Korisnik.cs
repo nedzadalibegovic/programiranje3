@@ -18,6 +18,10 @@ namespace StudentskaSluzba {
 
         // https://stackoverflow.com/a/3801289
         public static byte[] ImageToByteArray(Image imageIn) {
+            if (imageIn == null) {
+                return null;
+            }
+
             using (MemoryStream ms = new MemoryStream()) {
                 imageIn.Save(ms, imageIn.RawFormat);
                 return ms.ToArray();
@@ -25,6 +29,10 @@ namespace StudentskaSluzba {
         }
 
         public static Image ByteArrayToImage(byte[] byteArrayIn) {
+            if (byteArrayIn == null) {
+                return null;
+            }
+
             using (MemoryStream ms = new MemoryStream(byteArrayIn)) {
                 Image returnImage = Image.FromStream(ms);
                 return returnImage;

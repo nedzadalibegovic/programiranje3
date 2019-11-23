@@ -1,7 +1,5 @@
-﻿namespace StudentskaSluzba
-{
-    partial class frmRegistracija
-    {
+﻿namespace StudentskaSluzba {
+    partial class frmRegistracija {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -11,10 +9,8 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
+        protected override void Dispose(bool disposing) {
+            if (disposing && (components != null)) {
                 components.Dispose();
             }
             base.Dispose(disposing);
@@ -26,8 +22,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistracija));
             this.txtIme = new System.Windows.Forms.TextBox();
@@ -48,80 +43,84 @@
             // 
             // txtIme
             // 
-            this.txtIme.Location = new System.Drawing.Point(45, 52);
-            this.txtIme.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtIme.Location = new System.Drawing.Point(30, 34);
+            this.txtIme.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtIme.Name = "txtIme";
-            this.txtIme.Size = new System.Drawing.Size(231, 26);
+            this.txtIme.Size = new System.Drawing.Size(155, 20);
             this.txtIme.TabIndex = 0;
             // 
             // txtPrezime
             // 
-            this.txtPrezime.Location = new System.Drawing.Point(350, 51);
-            this.txtPrezime.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPrezime.Location = new System.Drawing.Point(233, 33);
+            this.txtPrezime.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtPrezime.Name = "txtPrezime";
-            this.txtPrezime.Size = new System.Drawing.Size(270, 26);
+            this.txtPrezime.Size = new System.Drawing.Size(181, 20);
             this.txtPrezime.TabIndex = 1;
             // 
             // lblIme
             // 
             this.lblIme.AutoSize = true;
-            this.lblIme.Location = new System.Drawing.Point(45, 24);
+            this.lblIme.Location = new System.Drawing.Point(30, 16);
+            this.lblIme.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblIme.Name = "lblIme";
-            this.lblIme.Size = new System.Drawing.Size(40, 20);
+            this.lblIme.Size = new System.Drawing.Size(27, 13);
             this.lblIme.TabIndex = 2;
             this.lblIme.Text = "Ime:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(350, 22);
+            this.label1.Location = new System.Drawing.Point(233, 14);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 20);
+            this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "Prezime:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(48, 110);
+            this.label2.Location = new System.Drawing.Point(32, 71);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 20);
+            this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 5;
             this.label2.Text = "Username:";
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(45, 139);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtUsername.Location = new System.Drawing.Point(30, 90);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(231, 26);
+            this.txtUsername.Size = new System.Drawing.Size(155, 20);
             this.txtUsername.TabIndex = 4;
             this.txtUsername.Validating += new System.ComponentModel.CancelEventHandler(this.txtUsername_Validating);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(350, 110);
+            this.label3.Location = new System.Drawing.Point(233, 71);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 20);
+            this.label3.Size = new System.Drawing.Size(56, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "Password:";
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(350, 139);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPassword.Location = new System.Drawing.Point(233, 90);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(270, 26);
+            this.txtPassword.Size = new System.Drawing.Size(181, 20);
             this.txtPassword.TabIndex = 6;
             this.txtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtPassword_Validating);
             // 
             // btnSnimi
             // 
-            this.btnSnimi.Location = new System.Drawing.Point(433, 335);
-            this.btnSnimi.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSnimi.Location = new System.Drawing.Point(289, 218);
+            this.btnSnimi.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnSnimi.Name = "btnSnimi";
-            this.btnSnimi.Size = new System.Drawing.Size(187, 29);
+            this.btnSnimi.Size = new System.Drawing.Size(125, 19);
             this.btnSnimi.TabIndex = 8;
             this.btnSnimi.Text = "Snimi";
             this.btnSnimi.UseVisualStyleBackColor = true;
@@ -135,9 +134,10 @@
             // pictureBox1
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(45, 201);
+            this.pictureBox1.Location = new System.Drawing.Point(30, 131);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(231, 163);
+            this.pictureBox1.Size = new System.Drawing.Size(155, 107);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
@@ -146,12 +146,13 @@
             // ofdPictureBox
             // 
             this.ofdPictureBox.FileName = "ofdPictureBox";
+            this.ofdPictureBox.Filter = "Image Files|*.JPG;*.JPEG;*.PNG;*.BMP;*.GIF;";
             // 
             // frmRegistracija
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(673, 404);
+            this.ClientSize = new System.Drawing.Size(449, 263);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnSnimi);
             this.Controls.Add(this.label3);
@@ -162,7 +163,7 @@
             this.Controls.Add(this.lblIme);
             this.Controls.Add(this.txtPrezime);
             this.Controls.Add(this.txtIme);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "frmRegistracija";
             this.Text = "frmRegistracija";
             this.Load += new System.EventHandler(this.frmRegistracija_Load);

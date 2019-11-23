@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
@@ -20,7 +20,7 @@ namespace StudentskaSluzba {
 
         private void btnSnimi_Click(object sender, EventArgs e) {
             try {
-                if (this.ValidateChildren()) {
+                if (ValidateChildren() && pictureBox1Validate()) {
                     if (korisnik == null) {
                         korisnik = new Korisnik();
 
@@ -32,7 +32,7 @@ namespace StudentskaSluzba {
                         DodijeliAtributeKorisniku(korisnik);
                     }
 
-                    this.Close();
+                    Close();
                 }
             } catch (Exception) {
                 MessageBox.Show("", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -77,12 +77,23 @@ namespace StudentskaSluzba {
                 txtPrezime.Text = korisnik.Prezime;
                 txtUsername.Text = korisnik.Username;
                 txtPassword.Text = korisnik.Password;
+                pictureBox1.Image = Korisnik.ByteArrayToImage(korisnik.AccountImage);
             }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e) {
             if (ofdPictureBox.ShowDialog() == DialogResult.OK) {
                 pictureBox1.Image = Image.FromFile(ofdPictureBox.FileName);
+            }
+        }
+
+        private bool pictureBox1Validate() {
+            if (pictureBox1.Image == null) {
+                errorProvider.SetError(pictureBox1, "Image is required!");
+                return false;
+            } else {
+                errorProvider.SetError(pictureBox1, null);
+                return true;
             }
         }
     }
