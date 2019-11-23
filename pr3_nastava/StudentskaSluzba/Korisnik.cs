@@ -17,26 +17,24 @@ namespace StudentskaSluzba {
         }
 
         // https://stackoverflow.com/a/3801289
-        public static byte[] ImageToByteArray(Image imageIn) {
-            if (imageIn == null) {
+        public static byte[] ImageToByteArray(Image img) {
+            if (img == null) {
                 return null;
             }
 
-            using (MemoryStream ms = new MemoryStream()) {
-                imageIn.Save(ms, imageIn.RawFormat);
-                return ms.ToArray();
+            using (MemoryStream stream = new MemoryStream()) {
+                img.Save(stream, img.RawFormat);
+                return stream.ToArray();
             }
         }
 
-        public static Image ByteArrayToImage(byte[] byteArrayIn) {
-            if (byteArrayIn == null) {
+        public static Image ByteArrayToImage(byte[] byteArray) {
+            if (byteArray == null) {
                 return null;
             }
 
-            using (MemoryStream ms = new MemoryStream(byteArrayIn)) {
-                Image returnImage = Image.FromStream(ms);
-                return returnImage;
-            }
+            MemoryStream stream = new MemoryStream(byteArray);
+            return Image.FromStream(stream);
         }
     }
 }
