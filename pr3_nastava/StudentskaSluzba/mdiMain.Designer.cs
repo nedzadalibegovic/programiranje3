@@ -27,10 +27,11 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.korisniciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registracijaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ucionicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.ucionicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -51,7 +52,8 @@
             // 
             this.korisniciToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registracijaToolStripMenuItem,
-            this.ucionicaToolStripMenuItem});
+            this.ucionicaToolStripMenuItem,
+            this.listaToolStripMenuItem});
             this.korisniciToolStripMenuItem.Name = "korisniciToolStripMenuItem";
             this.korisniciToolStripMenuItem.Size = new System.Drawing.Size(93, 29);
             this.korisniciToolStripMenuItem.Text = "Korisnici";
@@ -62,6 +64,13 @@
             this.registracijaToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.registracijaToolStripMenuItem.Text = "Registracija";
             this.registracijaToolStripMenuItem.Click += new System.EventHandler(this.registracijaToolStripMenuItem_Click);
+            // 
+            // ucionicaToolStripMenuItem
+            // 
+            this.ucionicaToolStripMenuItem.Name = "ucionicaToolStripMenuItem";
+            this.ucionicaToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.ucionicaToolStripMenuItem.Text = "Ucionica";
+            this.ucionicaToolStripMenuItem.Click += new System.EventHandler(this.ucionicaToolStripMenuItem_Click);
             // 
             // statusStrip
             // 
@@ -81,12 +90,12 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(60, 25);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // ucionicaToolStripMenuItem
+            // listaToolStripMenuItem
             // 
-            this.ucionicaToolStripMenuItem.Name = "ucionicaToolStripMenuItem";
-            this.ucionicaToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.ucionicaToolStripMenuItem.Text = "Ucionica";
-            this.ucionicaToolStripMenuItem.Click += new System.EventHandler(this.ucionicaToolStripMenuItem_Click);
+            this.listaToolStripMenuItem.Name = "listaToolStripMenuItem";
+            this.listaToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.listaToolStripMenuItem.Text = "Lista";
+            this.listaToolStripMenuItem.Click += new System.EventHandler(this.listaToolStripMenuItem_Click);
             // 
             // mdiMain
             // 
@@ -118,6 +127,7 @@
         private System.Windows.Forms.ToolStripMenuItem korisniciToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registracijaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ucionicaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listaToolStripMenuItem;
     }
 }
 

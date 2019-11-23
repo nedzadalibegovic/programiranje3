@@ -40,80 +40,88 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnSnimi = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ofdPictureBox = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtIme
             // 
-            this.txtIme.Location = new System.Drawing.Point(40, 42);
+            this.txtIme.Location = new System.Drawing.Point(45, 52);
+            this.txtIme.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtIme.Name = "txtIme";
-            this.txtIme.Size = new System.Drawing.Size(206, 22);
+            this.txtIme.Size = new System.Drawing.Size(231, 26);
             this.txtIme.TabIndex = 0;
             // 
             // txtPrezime
             // 
-            this.txtPrezime.Location = new System.Drawing.Point(311, 41);
+            this.txtPrezime.Location = new System.Drawing.Point(350, 51);
+            this.txtPrezime.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPrezime.Name = "txtPrezime";
-            this.txtPrezime.Size = new System.Drawing.Size(240, 22);
+            this.txtPrezime.Size = new System.Drawing.Size(270, 26);
             this.txtPrezime.TabIndex = 1;
             // 
             // lblIme
             // 
             this.lblIme.AutoSize = true;
-            this.lblIme.Location = new System.Drawing.Point(40, 19);
+            this.lblIme.Location = new System.Drawing.Point(45, 24);
             this.lblIme.Name = "lblIme";
-            this.lblIme.Size = new System.Drawing.Size(34, 17);
+            this.lblIme.Size = new System.Drawing.Size(40, 20);
             this.lblIme.TabIndex = 2;
             this.lblIme.Text = "Ime:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(311, 18);
+            this.label1.Location = new System.Drawing.Point(350, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 17);
+            this.label1.Size = new System.Drawing.Size(70, 20);
             this.label1.TabIndex = 3;
             this.label1.Text = "Prezime:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(43, 88);
+            this.label2.Location = new System.Drawing.Point(48, 110);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 17);
+            this.label2.Size = new System.Drawing.Size(87, 20);
             this.label2.TabIndex = 5;
             this.label2.Text = "Username:";
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(40, 111);
+            this.txtUsername.Location = new System.Drawing.Point(45, 139);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(206, 22);
+            this.txtUsername.Size = new System.Drawing.Size(231, 26);
             this.txtUsername.TabIndex = 4;
             this.txtUsername.Validating += new System.ComponentModel.CancelEventHandler(this.txtUsername_Validating);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(311, 88);
+            this.label3.Location = new System.Drawing.Point(350, 110);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 17);
+            this.label3.Size = new System.Drawing.Size(82, 20);
             this.label3.TabIndex = 7;
             this.label3.Text = "Password:";
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(311, 111);
+            this.txtPassword.Location = new System.Drawing.Point(350, 139);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(240, 22);
+            this.txtPassword.Size = new System.Drawing.Size(270, 26);
             this.txtPassword.TabIndex = 6;
             this.txtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtPassword_Validating);
             // 
             // btnSnimi
             // 
-            this.btnSnimi.Location = new System.Drawing.Point(385, 268);
+            this.btnSnimi.Location = new System.Drawing.Point(433, 335);
+            this.btnSnimi.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSnimi.Name = "btnSnimi";
-            this.btnSnimi.Size = new System.Drawing.Size(166, 23);
+            this.btnSnimi.Size = new System.Drawing.Size(187, 29);
             this.btnSnimi.TabIndex = 8;
             this.btnSnimi.Text = "Snimi";
             this.btnSnimi.UseVisualStyleBackColor = true;
@@ -124,11 +132,27 @@
             this.errorProvider.ContainerControl = this;
             this.errorProvider.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider.Icon")));
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(45, 201);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(231, 163);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // ofdPictureBox
+            // 
+            this.ofdPictureBox.FileName = "ofdPictureBox";
+            // 
             // frmRegistracija
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(598, 323);
+            this.ClientSize = new System.Drawing.Size(673, 404);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnSnimi);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtPassword);
@@ -138,9 +162,12 @@
             this.Controls.Add(this.lblIme);
             this.Controls.Add(this.txtPrezime);
             this.Controls.Add(this.txtIme);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmRegistracija";
             this.Text = "frmRegistracija";
+            this.Load += new System.EventHandler(this.frmRegistracija_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,5 +185,7 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnSnimi;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.OpenFileDialog ofdPictureBox;
     }
 }

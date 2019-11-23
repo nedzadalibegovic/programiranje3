@@ -1,13 +1,17 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace StudentskaSluzba {
     public partial class frmRegistracija : Form {
-        public frmRegistracija() {
+        Korisnik korisnik = null;
+
+        public frmRegistracija(Korisnik korisnik = null) {
             InitializeComponent();
 
             Baza.OnKorisnikSnimljen += Baza_OnKorisnikSnimljen;
+            this.korisnik = korisnik;
         }
 
         private void Baza_OnKorisnikSnimljen(Korisnik korisnik) {
@@ -17,15 +21,16 @@ namespace StudentskaSluzba {
         private void btnSnimi_Click(object sender, EventArgs e) {
             try {
                 if (this.ValidateChildren()) {
-                    Korisnik korisnik = new Korisnik();
-                    korisnik.Ime = txtIme.Text;
-                    korisnik.Prezime = txtPrezime.Text;
-                    korisnik.Username = txtUsername.Text;
-                    korisnik.Password = txtPassword.Text;
-                    korisnik.Validate();
-                    //Baza.Korisnici.Add(korisnik);
-                    //Baza.SnimiKorisnika(korisnik, IspisiKorisnika(korisnik));
-                    Baza.SnimiKorisnika(korisnik/*, x => MessageBox.Show(x.Ime)*/);
+                    if (korisnik == null) {
+                        korisnik = new Korisnik();
+
+                        DodijeliAtributeKorisniku(korisnik);
+                        //Baza.Korisnici.Add(korisnik);
+                        //Baza.SnimiKorisnika(korisnik, IspisiKorisnika(korisnik));
+                        Baza.SnimiKorisnika(korisnik/*, x => MessageBox.Show(x.Ime)*/);
+                    } else {
+                        DodijeliAtributeKorisniku(korisnik);
+                    }
 
                     this.Close();
                 }
@@ -33,6 +38,14 @@ namespace StudentskaSluzba {
                 MessageBox.Show("", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void DodijeliAtributeKorisniku(Korisnik korisnik) {
+            korisnik.Ime = txtIme.Text;
+            korisnik.Prezime = txtPrezime.Text;
+            korisnik.Username = txtUsername.Text;
+            korisnik.Password = txtPassword.Text;
+            korisnik.Validate();
         }
 
         private void IspisiKorisnika(Korisnik korisnik) {
@@ -54,6 +67,21 @@ namespace StudentskaSluzba {
                 e.Cancel = true;
             } else {
                 errorProvider.SetError(txtPassword, "");
+            }
+        }
+
+        private void frmRegistracija_Load(object sender, EventArgs e) {
+            if (korisnik != null) {
+                txtIme.Text = korisnik.Ime;
+                txtPrezime.Text = korisnik.Prezime;
+                txtUsername.Text = korisnik.Username;
+                txtPassword.Text = korisnik.Password;
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e) {
+            if (ofdPictureBox.ShowDialog() == DialogResult.OK) {
+                pictureBox1.Image = Image.FromFile(ofdPictureBox.FileName);
             }
         }
     }

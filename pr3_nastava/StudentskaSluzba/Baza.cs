@@ -12,6 +12,11 @@ namespace StudentskaSluzba {
 
         public static event Action<Ucionica> OnUcionicaSnimljen;
 
+        static Baza() {
+            Korisnici.Add(new Korisnik { Ime = "Nedzad", Prezime = "Alibegovic", Username = "nedzad", Password = "qweasd" });
+            Korisnici.Add(new Korisnik { Ime = "Adis", Prezime = "Kubat", Username = "adis", Password = "qwerty" });
+        }
+
         public static void SnimiKorisnika(Korisnik korisnik/*, Action<Korisnik> prikaz*/) {
             Korisnici.Add(korisnik);
 
