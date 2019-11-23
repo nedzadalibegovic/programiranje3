@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
@@ -16,6 +16,7 @@ namespace StudentskaSluzba {
 
         private void Baza_OnKorisnikSnimljen(Korisnik korisnik) {
             MessageBox.Show("Prvi event: " + korisnik.Ime);
+            Baza.OnKorisnikSnimljen -= Baza_OnKorisnikSnimljen;
         }
 
         private void btnSnimi_Click(object sender, EventArgs e) {
