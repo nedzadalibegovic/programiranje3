@@ -45,6 +45,7 @@ namespace StudentskaSluzba {
             korisnik.Prezime = txtPrezime.Text;
             korisnik.Username = txtUsername.Text;
             korisnik.Password = txtPassword.Text;
+            korisnik.AccountImage = Korisnik.ImageToByteArray(pictureBox1.Image);
             korisnik.Validate();
         }
 
