@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,6 +34,9 @@ namespace RegistrationLogin {
         private void DGW_Rerfresh(List<User> list) {
             dgwUsers.DataSource = null;
             dgwUsers.DataSource = list;
+
+            var imageColumns = dgwUsers.Columns.OfType<DataGridViewImageColumn>().ToList();
+            imageColumns.ForEach(column => column.ImageLayout = DataGridViewImageCellLayout.Zoom);
         }
 
         private void Database_UserLoggedIn(User obj) {
