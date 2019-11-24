@@ -58,7 +58,6 @@
             this.txtFirst.Name = "txtFirst";
             this.txtFirst.Size = new System.Drawing.Size(169, 20);
             this.txtFirst.TabIndex = 0;
-            this.txtFirst.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_Validating);
             // 
             // txtLast
             // 
@@ -66,7 +65,6 @@
             this.txtLast.Name = "txtLast";
             this.txtLast.Size = new System.Drawing.Size(169, 20);
             this.txtLast.TabIndex = 1;
-            this.txtLast.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_Validating);
             // 
             // label2
             // 
@@ -83,7 +81,6 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(169, 20);
             this.txtUsername.TabIndex = 2;
-            this.txtUsername.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_Validating);
             // 
             // label3
             // 
@@ -101,7 +98,6 @@
             this.txtPassword.Size = new System.Drawing.Size(169, 20);
             this.txtPassword.TabIndex = 3;
             this.txtPassword.UseSystemPasswordChar = true;
-            this.txtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_Validating);
             // 
             // label4
             // 
@@ -119,7 +115,6 @@
             this.txtConfirm.Size = new System.Drawing.Size(169, 20);
             this.txtConfirm.TabIndex = 4;
             this.txtConfirm.UseSystemPasswordChar = true;
-            this.txtConfirm.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_Validating);
             // 
             // label5
             // 

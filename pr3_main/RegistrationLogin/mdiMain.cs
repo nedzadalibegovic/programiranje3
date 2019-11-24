@@ -47,13 +47,11 @@ namespace RegistrationLogin {
 
         private void loginToolStripMenuItem_Click(object sender, EventArgs e) {
             frmLogin form = new frmLogin();
-            //form.MdiParent = this;
             form.ShowDialog();
         }
 
         private void registrationToolStripMenuItem_Click(object sender, EventArgs e) {
             frmRegistration form = new frmRegistration();
-            //form.MdiParent = this;
             form.ShowDialog();
         }
 
