@@ -10,6 +10,7 @@ namespace RegistrationLogin {
 
         public static event Action<User> UserRegistered;
         public static event Action<User> UserLoggedIn;
+        public static event Action<User> UserUpdated;
 
         static Database() {
             Users.Add(new User("Nedzad", "Alibegovic", "nedzad", "qwerty", null));
@@ -36,6 +37,12 @@ namespace RegistrationLogin {
 
         public static List<User> QueryString(string query) {
             return Users.FindAll(user => user.FirstName.ToLower().Contains(query.ToLower()) || user.LastName.ToLower().Contains(query.ToLower()));
+        }
+
+        public static void Update(User user, string first, string last, string username, string password, byte[] image) {
+            Users.Find(x => x == user).Update(first, last, username, password, image);
+
+            UserUpdated?.Invoke(user);
         }
     }
 }

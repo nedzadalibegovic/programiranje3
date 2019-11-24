@@ -10,14 +10,23 @@ using System.Windows.Forms;
 
 namespace RegistrationLogin {
     public partial class frmRegistration : Form {
-        public frmRegistration() {
+        User sentUser = null;
+
+        public frmRegistration(User sentUser = null) {
             InitializeComponent();
+
+            this.sentUser = sentUser;
         }
 
         private void btnRegister_Click(object sender, EventArgs e) {
             if (ValidateChildren()) {
-                User user = new User(txtFirst.Text, txtLast.Text, txtUsername.Text, txtPassword.Text, User.ImageToByteArray(picImage.Image));
-                Database.Register(user);
+                if (sentUser == null) {
+                    sentUser = new User(txtFirst.Text, txtLast.Text, txtUsername.Text, txtPassword.Text, User.ImageToByteArray(picImage.Image));
+                    Database.Register(sentUser);
+                } else {
+                    Database.Update(sentUser, txtFirst.Text, txtLast.Text, txtUsername.Text, txtPassword.Text, User.ImageToByteArray(picImage.Image));
+                }
+
                 Close();
             }
         }
@@ -49,6 +58,19 @@ namespace RegistrationLogin {
 
             errorProvider.Clear();
             return true;
+        }
+
+        private void btnLoadImage_Click(object sender, EventArgs e) {
+            if (fileDialog.ShowDialog() == DialogResult.OK) {
+                picImage.Image = Image.FromFile(fileDialog.FileName);
+            }
+        }
+
+        private void frmRegistration_Load(object sender, EventArgs e) {
+            txtFirst.Text = sentUser?.FirstName;
+            txtLast.Text = sentUser?.LastName;
+            txtUsername.Text = sentUser?.Username;
+            picImage.Image = User.ByteArrayToImage(sentUser?.AccountPicture);
         }
 
         private void btnLoadImage_Click(object sender, EventArgs e) {

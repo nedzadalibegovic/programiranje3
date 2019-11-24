@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,9 +20,11 @@ namespace RegistrationLogin {
 
             Database.UserLoggedIn += Database_UserLoggedIn;
             Database.UserRegistered += Database_UserRegistered;
+            Database.UserUpdated += Database_UserRegistered;
 
-            dgwUsers.DataSource = Database.Users;
             dgwUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            DGW_Rerfresh(Database.Users);
         }
 
         private void Database_UserRegistered(User obj) {
@@ -57,6 +59,12 @@ namespace RegistrationLogin {
 
         private void txtSearch_TextChanged(object sender, EventArgs e) {
             DGW_Rerfresh(Database.QueryString(txtSearch.Text));
+        }
+
+        private void dgwUsers_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {
+            using (frmRegistration frm = new frmRegistration(dgwUsers.SelectedRows[0].DataBoundItem as User)) {
+                frm.ShowDialog();
+            }
         }
     }
 }

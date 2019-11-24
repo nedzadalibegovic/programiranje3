@@ -2,7 +2,7 @@
 using System.IO;
 
 namespace RegistrationLogin {
-    class User {
+    public class User {
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Username { get; set; }
@@ -37,6 +37,14 @@ namespace RegistrationLogin {
                 stream.Write(array, 0, array.Length);
                 return Image.FromStream(stream);
             }
+        }
+
+        public void Update(string first, string last, string username, string password, byte[] image) {
+            FirstName = first;
+            LastName = last;
+            Username = username;
+            Password = password;
+            AccountPicture = image;
         }
 
         public bool ValidateCredentials(string Username, string Password) {
