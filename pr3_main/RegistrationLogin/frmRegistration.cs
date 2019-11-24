@@ -72,11 +72,5 @@ namespace RegistrationLogin {
             txtUsername.Text = sentUser?.Username;
             picImage.Image = User.ByteArrayToImage(sentUser?.AccountPicture);
         }
-
-        private void btnLoadImage_Click(object sender, EventArgs e) {
-            if (fileDialog.ShowDialog() == DialogResult.OK) {
-                picImage.Image = Image.FromFile(fileDialog.FileName);
-            }
-        }
     }
 }
