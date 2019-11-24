@@ -33,10 +33,10 @@ namespace RegistrationLogin {
                 return null;
             }
 
-            using (MemoryStream stream = new MemoryStream()) {
-                stream.Write(array, 0, array.Length);
-                return Image.FromStream(stream);
-            }
+            MemoryStream stream = new MemoryStream();
+            stream.Write(array, 0, array.Length);
+
+            return Image.FromStream(stream);
         }
 
         public void Update(string first, string last, string username, string password, byte[] image) {
