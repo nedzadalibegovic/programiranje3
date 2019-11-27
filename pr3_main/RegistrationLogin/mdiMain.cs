@@ -52,6 +52,10 @@ namespace RegistrationLogin {
         }
 
         private void dgwUsers_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {
+            if (e.RowIndex == -1) {
+                return;
+            }
+
             using (frmRegistration frm = new frmRegistration(dgwUsers.SelectedRows[0].DataBoundItem as User)) {
                 frm.ShowDialog();
             }
