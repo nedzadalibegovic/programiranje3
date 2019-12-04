@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace predavanje_2019_11_20 {
@@ -23,6 +18,30 @@ namespace predavanje_2019_11_20 {
 
         private void KorisniciAdmin_Load(object sender, EventArgs e) {
             dgwKorisnici.DataSource = DBInMemory.korisnici;
+
+            // var - compile-time
+            var Ime = "Nedzad";
+            // Ime.Length
+
+            // dynamic - run-time, moguce mijenjati tip podatka
+            dynamic dyIme = "Nedzad";
+            // npr. dyIme = 12;
+            // dyIme.Length ???
+
+            // extend method
+            //MessageBox.Show(Ime.Enkripcija());
+
+            //Tuple<string, string> tuple = Tuple.Create("Nedzad", "Alibegovic");
+            var tuple = (Ime: "Nedzad", Prezime: "Alibegovic");
+
+            var student = new { Ime = "Nedzad", Indeks = 180037 };
+
+            // LINQ
+            List<Korisnik> denisi = (from korisnik in DBInMemory.korisnici
+                                     where korisnik.Ime == "Denis"
+                                     select korisnik).ToList();
+
+            //List<Korisnik> test = DBInMemory.korisnici.FindAll(x => x.Ime == "Denis");
         }
 
         private void btnNoviKorisnik_Click(object sender, EventArgs e) {
@@ -33,13 +52,26 @@ namespace predavanje_2019_11_20 {
         private void txtPretraga_TextChanged(object sender, EventArgs e) {
             string trazeniText = txtPretraga.Text.ToLower();
 
-            var rezultatPretrage = DBInMemory.korisnici.FindAll(x => x.Ime.ToLower().Contains(trazeniText) || x.Prezime.ToLower().Contains(trazeniText));
-
             //foreach (var korisnik in DBInMemory.korisnici) {
             //    if (korisnik.Ime.Contains(trazeniText) || korisnik.Prezime.Contains(trazeniText)) {
             //        rezultatPretrage.Add(korisnik);
             //    }
             //}
+
+            //var rezultatPretrage = DBInMemory.korisnici.FindAll(x => x.Ime.ToLower().Contains(trazeniText) || x.Prezime.ToLower().Contains(trazeniText));
+
+            //var rezultatPretrage = (from korisnik in DBInMemory.korisnici
+            //                        where korisnik.Ime.ToLower().Contains(txtPretraga.Text.ToLower())
+            //                        select korisnik).ToList();
+
+            //var rezultatPretrage = DBInMemory.korisnici.Where(x => x.Ime.ToLower().Contains(trazeniText)).ToList();
+
+            var rezultatPretrage = DBInMemory.korisnici.Where(x => x.Ime.ToLower().Contains(trazeniText) || x.Prezime.ToLower().Contains(trazeniText)).ToList();
+
+            var comboBox = DBInMemory.korisnici.FindAll(x => x.Ime.ToLower().Contains(trazeniText) || x.Prezime.ToLower().Contains(trazeniText));
+
+            comboBox1.DisplayMember = "Ime";
+            comboBox1.DataSource = comboBox;
 
             dgwKorisnici.DataSource = null;
             dgwKorisnici.DataSource = rezultatPretrage;

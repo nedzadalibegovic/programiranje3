@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBInMemory.cs" />
+    <Compile Include="Ekstenzije.cs" />
     <Compile Include="frmRegistracija.cs">
       <SubType>Form</SubType>
     </Compile>
