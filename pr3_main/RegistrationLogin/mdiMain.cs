@@ -56,7 +56,10 @@ namespace RegistrationLogin {
                 return;
             }
 
-            using (frmRegistration frm = new frmRegistration(dgwUsers.SelectedRows[0].DataBoundItem as User)) {
+            var userID = (dgwUsers.SelectedRows[0].DataBoundItem as User).ID;
+
+            if (Database.TryGetUser(userID, out User user)) {
+                var frm = new frmRegistration(user);
                 frm.ShowDialog();
             }
         }

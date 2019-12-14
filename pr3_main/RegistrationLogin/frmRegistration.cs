@@ -10,21 +10,21 @@ using System.Windows.Forms;
 
 namespace RegistrationLogin {
     public partial class frmRegistration : Form {
-        User sentUser = null;
+        public User SentUser { get; set; }
 
         public frmRegistration(User sentUser = null) {
             InitializeComponent();
 
-            this.sentUser = sentUser;
+            SentUser = sentUser;
         }
 
         private void btnRegister_Click(object sender, EventArgs e) {
             if (ValidateChildren()) {
-                if (sentUser == null) {
-                    sentUser = new User(txtFirst.Text, txtLast.Text, txtUsername.Text, txtPassword.Text, User.ImageToByteArray(picImage.Image));
-                    Database.Register(sentUser);
+                if (SentUser == null) {
+                    Database.Register(txtFirst.Text, txtLast.Text, txtUsername.Text, txtPassword.Text, User.ImageToByteArray(picImage.Image));
                 } else {
-                    Database.Update(sentUser, txtFirst.Text, txtLast.Text, txtUsername.Text, txtPassword.Text, User.ImageToByteArray(picImage.Image));
+                    SentUser.Update(SentUser.ID, txtFirst.Text, txtLast.Text, txtUsername.Text, txtPassword.Text, User.ImageToByteArray(picImage.Image));
+                    Database.Update(SentUser.ID, SentUser);
                 }
 
                 Close();
@@ -67,10 +67,10 @@ namespace RegistrationLogin {
         }
 
         private void frmRegistration_Load(object sender, EventArgs e) {
-            txtFirst.Text = sentUser?.FirstName;
-            txtLast.Text = sentUser?.LastName;
-            txtUsername.Text = sentUser?.Username;
-            picImage.Image = User.ByteArrayToImage(sentUser?.AccountPicture);
+            txtFirst.Text = SentUser?.FirstName;
+            txtLast.Text = SentUser?.LastName;
+            txtUsername.Text = SentUser?.Username;
+            picImage.Image = User.ByteArrayToImage(SentUser?.AccountPicture);
         }
     }
 }
