@@ -20,13 +20,13 @@ namespace RegistrationLogin {
             Database.UserRegistered += DGV_Refresh;
             Database.UserUpdated += DGV_Refresh;
 
+            dgwUsers.DataSource = Database.Users;
             dgwUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgwUsers.DataSource = Database.bindingSource;
             dgwUsers.Columns.OfType<DataGridViewImageColumn>().ToList().ForEach(column => column.ImageLayout = DataGridViewImageCellLayout.Zoom);
         }
 
         private void DGV_Refresh(User _) {
-            dgwUsers.DataSource = Database.bindingSource;
+            dgwUsers.DataSource = Database.Users;
         }
 
         private void Database_UserLoggedIn(User obj) {
@@ -45,7 +45,7 @@ namespace RegistrationLogin {
 
         private void txtSearch_TextChanged(object sender, EventArgs e) {
             if (txtSearch.TextLength == 0) {
-                dgwUsers.DataSource = Database.bindingSource;
+                dgwUsers.DataSource = Database.Users;
             } else {
                 dgwUsers.DataSource = Database.QueryString(txtSearch.Text);
             }
