@@ -25,7 +25,7 @@ namespace RegistrationLogin {
             dgwUsers.Columns.OfType<DataGridViewImageColumn>().ToList().ForEach(column => column.ImageLayout = DataGridViewImageCellLayout.Zoom);
         }
 
-        private void DGV_Refresh(User _) {
+        private void DGV_Refresh() {
             dgwUsers.DataSource = Database.Users;
         }
 

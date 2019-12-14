@@ -8,9 +8,9 @@ namespace RegistrationLogin {
         public static BindingList<User> Users { get; } = new BindingList<User>();
         public static int StartId { get; } = 100;
 
-        public static event Action<User> UserRegistered;
         public static event Action<User> UserLoggedIn;
-        public static event Action<User> UserUpdated;
+        public static event Action UserRegistered;
+        public static event Action UserUpdated;
 
         static Database() {
             Users.Add(new User(StartId++, "John", "Doe", "john.doe", "qwerty", null));
@@ -22,7 +22,7 @@ namespace RegistrationLogin {
             var user = new User(id, first, last, username, password, picture);
 
             Users.Add(user);
-            UserRegistered?.Invoke(user);
+            UserRegistered?.Invoke();
         }
 
         public static void Update(int id, User user) {
@@ -30,7 +30,7 @@ namespace RegistrationLogin {
 
             found?.Update(user);
             Users.ResetItem(Users.IndexOf(found));
-            UserUpdated?.Invoke(user);
+            UserUpdated?.Invoke();
         }
 
         public static bool TryGetUser(int id, out User user) {
