@@ -1,4 +1,4 @@
-﻿using System.Drawing;
+using System.Drawing;
 using System.IO;
 
 namespace RegistrationLogin {
@@ -67,15 +67,7 @@ namespace RegistrationLogin {
         }
 
         public void Update(User user) {
-            if (user.ID != ID) {
-                return;
-            }
-
-            FirstName = user.FirstName;
-            LastName = user.LastName;
-            Username = user.Username;
-            Password = user.Password;
-            AccountPicture = user.AccountPicture;
+            Update(user.ID, user.FirstName, user.LastName, user.Username, user.Password, user.AccountPicture);
         }
 
         public bool ValidateCredentials(string username, string password) {
