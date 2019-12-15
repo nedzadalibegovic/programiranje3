@@ -20,9 +20,9 @@ namespace RegistrationLogin {
             Database.UserRegistered += DGV_Refresh;
             Database.UserUpdated += DGV_Refresh;
 
-            dgwUsers.DataSource = Database.Users;
-            dgwUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgwUsers.Columns.OfType<DataGridViewImageColumn>().ToList().ForEach(column => column.ImageLayout = DataGridViewImageCellLayout.Zoom);
+            dgvUsers.DataSource = Database.Users;
+            dgvUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvUsers.Columns.OfType<DataGridViewImageColumn>().ToList().ForEach(column => column.ImageLayout = DataGridViewImageCellLayout.Zoom);
         }
 
         private void DGV_Refresh() {
@@ -45,9 +45,9 @@ namespace RegistrationLogin {
 
         private void txtSearch_TextChanged(object sender, EventArgs e) {
             if (txtSearch.TextLength == 0) {
-                dgwUsers.DataSource = Database.Users;
+                dgvUsers.DataSource = Database.Users;
             } else {
-                dgwUsers.DataSource = Database.QueryString(txtSearch.Text);
+                dgvUsers.DataSource = Database.Query(txtSearch.Text);
             }
         }
 
@@ -56,7 +56,7 @@ namespace RegistrationLogin {
                 return;
             }
 
-            var userID = (dgwUsers.SelectedRows[0].DataBoundItem as User).ID;
+            var userID = (dgvUsers.SelectedRows[0].DataBoundItem as User).ID;
 
             if (Database.TryGetUser(userID, out User user)) {
                 var frm = new frmRegistration(user);

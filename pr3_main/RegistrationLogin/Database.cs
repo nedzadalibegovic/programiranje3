@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+using System;
 using System.ComponentModel;
 using System.Linq;
 
@@ -51,8 +50,10 @@ namespace RegistrationLogin {
             return user;
         }
 
-        public static List<User> QueryString(string query) {
-            return Users.Where(user => user.FirstName.ToLower().Contains(query.ToLower()) || user.LastName.ToLower().Contains(query.ToLower())).ToList();
+        public static BindingList<User> Query(string query) {
+            var queryResult = Users.Where(user => user.FirstName.ToLower().Contains(query.ToLower()) || user.LastName.ToLower().Contains(query.ToLower())).ToList();
+
+            return new BindingList<User>(queryResult);
         }
     }
 }
