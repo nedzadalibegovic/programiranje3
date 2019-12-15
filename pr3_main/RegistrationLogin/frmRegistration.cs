@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -29,31 +29,30 @@ namespace RegistrationLogin {
 
         public override bool ValidateChildren() {
             List<TextBox> textBoxes = Controls.OfType<TextBox>().ToList();
+            bool txtAll = true, txtPass = true, pbImg = true;
 
             if (textBoxes.Count(x => string.IsNullOrEmpty(x.Text)) > 0) {
                 textBoxes.FindAll(x => string.IsNullOrEmpty(x.Text)).ForEach(x => errorProvider.SetError(x, "Field required!"));
-                textBoxes.FindAll(x => !string.IsNullOrEmpty(x.Text)).ForEach(x => errorProvider.SetError(x, null));
-                return false;
+                txtAll = false;
             } else {
                 textBoxes.FindAll(x => !string.IsNullOrEmpty(x.Text)).ForEach(x => errorProvider.SetError(x, null));
             }
 
             if (txtPassword.Text != txtConfirm.Text) {
                 errorProvider.SetError(txtConfirm, "Passwords don't match!");
-                return false;
+                txtPass = false;
             } else {
                 errorProvider.SetError(txtConfirm, null);
             }
 
             if (picImage.Image == null) {
                 errorProvider.SetError(picImage, "Image required!");
-                return false;
+                pbImg = false;
             } else {
                 errorProvider.SetError(picImage, null);
             }
 
-            errorProvider.Clear();
-            return true;
+            return txtAll && txtPass && pbImg;
         }
 
         private void btnLoadImage_Click(object sender, EventArgs e) {
