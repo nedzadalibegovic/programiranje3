@@ -34,15 +34,19 @@ namespace RegistrationLogin {
         public static bool TryGetUser(int id, out User user) {
             var found = Users.SingleOrDefault(x => x.ID == id);
 
-            user = new User(found);
+            if (found != null) {
+                user = new User(found);
+            } else {
+                user = null;
+            }
 
             return user != null;
         }
 
         public static User Login(string username, string password) {
-            User user = Users.FirstOrDefault(x => x.ValidateCredentials(username, password));
+            int id = Users.SingleOrDefault(x => x.ValidateCredentials(username, password))?.ID ?? -1;
 
-            if (user != null) {
+            if (TryGetUser(id, out User user)) {
                 UserLoggedIn?.Invoke(user);
             }
 
