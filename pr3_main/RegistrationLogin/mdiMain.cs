@@ -17,16 +17,10 @@ namespace RegistrationLogin {
             splash.ShowDialog();
 
             Database.UserLoggedIn += Database_UserLoggedIn;
-            Database.UserRegistered += DGV_Refresh;
-            Database.UserUpdated += DGV_Refresh;
 
             dgvUsers.DataSource = Database.Users;
             dgvUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvUsers.Columns.OfType<DataGridViewImageColumn>().ToList().ForEach(column => column.ImageLayout = DataGridViewImageCellLayout.Zoom);
-        }
-
-        private void DGV_Refresh() {
-            dgwUsers.DataSource = Database.Users;
         }
 
         private void Database_UserLoggedIn(User obj) {

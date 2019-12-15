@@ -26,10 +26,10 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dgwUsers = new System.Windows.Forms.DataGridView();
+            this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.menuStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwUsers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -59,20 +59,20 @@
             // 
             // dgwUsers
             // 
-            this.dgwUsers.AllowUserToAddRows = false;
-            this.dgwUsers.AllowUserToDeleteRows = false;
-            this.dgwUsers.AllowUserToResizeColumns = false;
-            this.dgwUsers.AllowUserToResizeRows = false;
-            this.dgwUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwUsers.Location = new System.Drawing.Point(12, 53);
-            this.dgwUsers.MultiSelect = false;
-            this.dgwUsers.Name = "dgwUsers";
-            this.dgwUsers.ReadOnly = true;
-            this.dgwUsers.RowHeadersVisible = false;
-            this.dgwUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgwUsers.Size = new System.Drawing.Size(608, 388);
-            this.dgwUsers.TabIndex = 2;
-            this.dgwUsers.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwUsers_CellDoubleClick);
+            this.dgvUsers.AllowUserToAddRows = false;
+            this.dgvUsers.AllowUserToDeleteRows = false;
+            this.dgvUsers.AllowUserToResizeColumns = false;
+            this.dgvUsers.AllowUserToResizeRows = false;
+            this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsers.Location = new System.Drawing.Point(12, 53);
+            this.dgvUsers.MultiSelect = false;
+            this.dgvUsers.Name = "dgwUsers";
+            this.dgvUsers.ReadOnly = true;
+            this.dgvUsers.RowHeadersVisible = false;
+            this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvUsers.Size = new System.Drawing.Size(608, 388);
+            this.dgvUsers.TabIndex = 2;
+            this.dgvUsers.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwUsers_CellDoubleClick);
             // 
             // txtSearch
             // 
@@ -88,7 +88,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(632, 453);
             this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.dgwUsers);
+            this.Controls.Add(this.dgvUsers);
             this.Controls.Add(this.menuStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.IsMdiContainer = true;
@@ -99,7 +99,7 @@
             this.Text = "RegistrationLogin";
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwUsers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -109,7 +109,7 @@
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registrationToolStripMenuItem;
-        private System.Windows.Forms.DataGridView dgwUsers;
+        private System.Windows.Forms.DataGridView dgvUsers;
         private System.Windows.Forms.TextBox txtSearch;
     }
 }

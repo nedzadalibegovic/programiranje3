@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Linq;
 
@@ -28,7 +28,6 @@ namespace RegistrationLogin {
             var found = Users.SingleOrDefault(x => x.ID == id);
 
             found?.Update(user);
-            Users.ResetItem(Users.IndexOf(found));
             UserUpdated?.Invoke();
         }
 
