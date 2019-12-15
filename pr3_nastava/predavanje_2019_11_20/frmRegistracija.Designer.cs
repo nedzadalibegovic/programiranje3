@@ -33,6 +33,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnSpremi = new System.Windows.Forms.Button();
             this.chkAdmin = new System.Windows.Forms.CheckBox();
+            this.cmbSpol = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtPrezime
@@ -76,7 +78,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(49, 94);
+            this.label2.Location = new System.Drawing.Point(34, 94);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 20);
             this.label2.TabIndex = 5;
@@ -113,18 +115,37 @@
             // chkAdmin
             // 
             this.chkAdmin.AutoSize = true;
-            this.chkAdmin.Location = new System.Drawing.Point(121, 146);
+            this.chkAdmin.Location = new System.Drawing.Point(474, 160);
             this.chkAdmin.Name = "chkAdmin";
             this.chkAdmin.Size = new System.Drawing.Size(129, 24);
             this.chkAdmin.TabIndex = 8;
             this.chkAdmin.Text = "Administrator";
             this.chkAdmin.UseVisualStyleBackColor = true;
             // 
+            // cmbSpol
+            // 
+            this.cmbSpol.FormattingEnabled = true;
+            this.cmbSpol.Location = new System.Drawing.Point(121, 156);
+            this.cmbSpol.Name = "cmbSpol";
+            this.cmbSpol.Size = new System.Drawing.Size(214, 28);
+            this.cmbSpol.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(44, 161);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 20);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Spol";
+            // 
             // frmRegistracija
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 245);
+            this.ClientSize = new System.Drawing.Size(800, 341);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.cmbSpol);
             this.Controls.Add(this.chkAdmin);
             this.Controls.Add(this.btnSpremi);
             this.Controls.Add(this.label4);
@@ -137,6 +158,7 @@
             this.Controls.Add(this.txtPrezime);
             this.Name = "frmRegistracija";
             this.Text = "frmRegistracija";
+            this.Load += new System.EventHandler(this.frmRegistracija_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -154,5 +176,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnSpremi;
         private System.Windows.Forms.CheckBox chkAdmin;
+        private System.Windows.Forms.ComboBox cmbSpol;
+        private System.Windows.Forms.Label label5;
     }
 }

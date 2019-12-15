@@ -80,6 +80,9 @@ namespace predavanje_2019_11_20 {
         private void dgwKorisnici_MouseClick(object sender, MouseEventArgs e) {
             Korisnik korisnik = dgwKorisnici.SelectedRows[0].DataBoundItem as Korisnik;
             Text = korisnik?.Ime;
+
+            var form = new frmRegistracija(korisnik);
+            form.ShowDialog();
         }
     }
 }

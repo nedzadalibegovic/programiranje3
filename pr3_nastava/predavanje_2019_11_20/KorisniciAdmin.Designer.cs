@@ -24,26 +24,33 @@
         /// </summary>
         private void InitializeComponent() {
             this.dgwKorisnici = new System.Windows.Forms.DataGridView();
-            this.Ime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Prezime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Admin = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnNoviKorisnik = new System.Windows.Forms.Button();
             this.txtPretraga = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Ime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Prezime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Spol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Admin = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Predmeti = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgwKorisnici)).BeginInit();
             this.SuspendLayout();
             // 
             // dgwKorisnici
             // 
+            this.dgwKorisnici.AllowUserToAddRows = false;
+            this.dgwKorisnici.AllowUserToDeleteRows = false;
             this.dgwKorisnici.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwKorisnici.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Ime,
             this.Prezime,
+            this.Spol,
             this.Username,
-            this.Admin});
+            this.Admin,
+            this.Predmeti});
             this.dgwKorisnici.Location = new System.Drawing.Point(12, 84);
             this.dgwKorisnici.Name = "dgwKorisnici";
+            this.dgwKorisnici.ReadOnly = true;
             this.dgwKorisnici.RowHeadersVisible = false;
             this.dgwKorisnici.RowHeadersWidth = 62;
             this.dgwKorisnici.RowTemplate.Height = 28;
@@ -51,40 +58,6 @@
             this.dgwKorisnici.Size = new System.Drawing.Size(776, 320);
             this.dgwKorisnici.TabIndex = 0;
             this.dgwKorisnici.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgwKorisnici_MouseClick);
-            // 
-            // Ime
-            // 
-            this.Ime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Ime.DataPropertyName = "Ime";
-            this.Ime.HeaderText = "Ime";
-            this.Ime.MinimumWidth = 8;
-            this.Ime.Name = "Ime";
-            // 
-            // Prezime
-            // 
-            this.Prezime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Prezime.DataPropertyName = "Prezime";
-            this.Prezime.HeaderText = "Prezime";
-            this.Prezime.MinimumWidth = 8;
-            this.Prezime.Name = "Prezime";
-            // 
-            // Username
-            // 
-            this.Username.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Username.DataPropertyName = "Username";
-            this.Username.HeaderText = "Username";
-            this.Username.MinimumWidth = 8;
-            this.Username.Name = "Username";
-            // 
-            // Admin
-            // 
-            this.Admin.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Admin.DataPropertyName = "Administrator";
-            this.Admin.HeaderText = "Admin";
-            this.Admin.MinimumWidth = 8;
-            this.Admin.Name = "Admin";
-            this.Admin.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Admin.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // btnNoviKorisnik
             // 
@@ -112,6 +85,63 @@
             this.comboBox1.Size = new System.Drawing.Size(290, 28);
             this.comboBox1.TabIndex = 3;
             // 
+            // Ime
+            // 
+            this.Ime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Ime.DataPropertyName = "Ime";
+            this.Ime.HeaderText = "Ime";
+            this.Ime.MinimumWidth = 8;
+            this.Ime.Name = "Ime";
+            this.Ime.ReadOnly = true;
+            // 
+            // Prezime
+            // 
+            this.Prezime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Prezime.DataPropertyName = "Prezime";
+            this.Prezime.HeaderText = "Prezime";
+            this.Prezime.MinimumWidth = 8;
+            this.Prezime.Name = "Prezime";
+            this.Prezime.ReadOnly = true;
+            // 
+            // Spol
+            // 
+            this.Spol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Spol.DataPropertyName = "Spol";
+            this.Spol.HeaderText = "Spol";
+            this.Spol.MinimumWidth = 8;
+            this.Spol.Name = "Spol";
+            this.Spol.ReadOnly = true;
+            // 
+            // Username
+            // 
+            this.Username.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Username.DataPropertyName = "Username";
+            this.Username.HeaderText = "Username";
+            this.Username.MinimumWidth = 8;
+            this.Username.Name = "Username";
+            this.Username.ReadOnly = true;
+            // 
+            // Admin
+            // 
+            this.Admin.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Admin.DataPropertyName = "Administrator";
+            this.Admin.HeaderText = "Admin";
+            this.Admin.MinimumWidth = 8;
+            this.Admin.Name = "Admin";
+            this.Admin.ReadOnly = true;
+            this.Admin.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Admin.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Predmeti
+            // 
+            this.Predmeti.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Predmeti.HeaderText = "Predmeti";
+            this.Predmeti.MinimumWidth = 8;
+            this.Predmeti.Name = "Predmeti";
+            this.Predmeti.ReadOnly = true;
+            this.Predmeti.Text = "Predmeti";
+            this.Predmeti.UseColumnTextForButtonValue = true;
+            // 
             // KorisniciAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -135,10 +165,12 @@
         private System.Windows.Forms.DataGridView dgwKorisnici;
         private System.Windows.Forms.Button btnNoviKorisnik;
         private System.Windows.Forms.TextBox txtPretraga;
+        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ime;
         private System.Windows.Forms.DataGridViewTextBoxColumn Prezime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Spol;
         private System.Windows.Forms.DataGridViewTextBoxColumn Username;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Admin;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridViewButtonColumn Predmeti;
     }
 }
