@@ -32,11 +32,7 @@ namespace RegistrationLogin {
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e) {
-            if (txtSearch.TextLength == 0) {
-                dgvUsers.DataSource = Database.Users;
-            } else {
-                dgvUsers.DataSource = Database.Query(txtSearch.Text);
-            }
+            Database.Query(txtSearch.Text);
         }
 
         private void dgwUsers_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {

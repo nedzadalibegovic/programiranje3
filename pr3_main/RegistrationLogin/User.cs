@@ -4,14 +4,16 @@ using System.IO;
 
 namespace RegistrationLogin {
     public class User : INotifyPropertyChanged {
-        public int ID { get; private set; }
+        public int ID { get; private set; } = 0;
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Username { get; set; }
-        public string Password { private get; set; }
+        public string Password { get; set; }
         public byte[] AccountPicture { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public User() { }
 
         public User(int id, string first, string last, string username, string password, byte[] picture) {
             ID = id;
