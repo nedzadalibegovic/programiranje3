@@ -1,20 +1,27 @@
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RegistrationLogin {
     public partial class mdiMain : Form {
         public mdiMain() {
+            ShowSplashScreen();
             InitializeComponent();
-
-            frmSplash splash = new frmSplash();
-            splash.ShowDialog();
 
             Database.UserLoggedIn += Database_UserLoggedIn;
 
             dgvUsers.DataSource = Database.Users;
             dgvUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvUsers.Columns.OfType<DataGridViewImageColumn>().ToList().ForEach(column => column.ImageLayout = DataGridViewImageCellLayout.Zoom);
+        }
+
+        private async void ShowSplashScreen() {
+            await Task.Run(() => {
+                using (var splash = new frmSplash()) {
+                    splash.ShowDialog();
+                }
+            });
         }
 
         private void Database_UserLoggedIn(User obj) {
