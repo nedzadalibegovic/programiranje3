@@ -14,6 +14,9 @@ namespace RegistrationLogin {
             dgvUsers.DataSource = Database.Users;
             dgvUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvUsers.Columns.OfType<DataGridViewImageColumn>().ToList().ForEach(column => column.ImageLayout = DataGridViewImageCellLayout.Zoom);
+
+            TopMost = true;
+            Load += (object sender, EventArgs e) => { TopMost = false; };
         }
 
         private async void ShowSplashScreen() {
