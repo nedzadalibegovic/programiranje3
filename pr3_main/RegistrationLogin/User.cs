@@ -4,7 +4,7 @@ using System.Drawing;
 using System.IO;
 
 namespace RegistrationLogin {
-    public class User : INotifyPropertyChanged {
+    public class User {
         public int ID { get; private set; } = 0;
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -12,8 +12,6 @@ namespace RegistrationLogin {
         public string Password { get; set; }
         public byte[] AccountPicture { get; set; }
         public virtual List<Role> Roles { get; set; } = new List<Role>();
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public User() { }
 
@@ -73,8 +71,6 @@ namespace RegistrationLogin {
             Password = password;
             AccountPicture = image;
             Roles = roles;
-
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("User.Update"));
         }
 
         public void Update(User modified) {
