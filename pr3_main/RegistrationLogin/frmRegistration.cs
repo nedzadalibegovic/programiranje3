@@ -11,15 +11,19 @@ namespace RegistrationLogin {
         public frmRegistration(User sentUser = null) {
             InitializeComponent();
 
+            clbRoles.DataSource = Database.Roles;
+
             SentUser = sentUser;
         }
 
         private void btnRegister_Click(object sender, EventArgs e) {
             if (ValidateChildren()) {
+                var roles = clbRoles.CheckedItems.Cast<Role>().ToList();
+
                 if (SentUser == null) {
-                    Database.Register(txtFirst.Text, txtLast.Text, txtUsername.Text, txtPassword.Text, User.ImageToByteArray(picImage.Image));
+                    Database.Register(txtFirst.Text, txtLast.Text, txtUsername.Text, txtPassword.Text, User.ImageToByteArray(picImage.Image), roles);
                 } else {
-                    SentUser.Update(SentUser.ID, txtFirst.Text, txtLast.Text, txtUsername.Text, txtPassword.Text, User.ImageToByteArray(picImage.Image));
+                    SentUser.Update(SentUser.ID, txtFirst.Text, txtLast.Text, txtUsername.Text, txtPassword.Text, User.ImageToByteArray(picImage.Image), roles);
                     Database.Update(SentUser.ID, SentUser);
                 }
 
@@ -65,7 +69,16 @@ namespace RegistrationLogin {
             txtFirst.Text = SentUser?.FirstName;
             txtLast.Text = SentUser?.LastName;
             txtUsername.Text = SentUser?.Username;
+            txtPassword.Text = SentUser?.Password;
             picImage.Image = User.ByteArrayToImage(SentUser?.AccountPicture);
+
+            for (int i = 0; i < clbRoles.Items.Count; i++) {
+                var role = clbRoles.Items[i] as Role;
+
+                if (SentUser?.Roles?.Find(x => x.ID == role.ID) != null) {
+                    clbRoles.SetItemChecked(i, true);
+                }
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 
@@ -10,6 +11,7 @@ namespace RegistrationLogin {
         public string Username { get; set; }
         public string Password { get; set; }
         public byte[] AccountPicture { get; set; }
+        public virtual List<Role> Roles { get; set; } = new List<Role>();
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -35,6 +37,7 @@ namespace RegistrationLogin {
             Username = user.Username;
             Password = user.Password;
             AccountPicture = user.AccountPicture;
+            Roles = user.Roles;
         }
 
         public static byte[] ImageToByteArray(Image img) {
@@ -59,7 +62,7 @@ namespace RegistrationLogin {
             return Image.FromStream(stream);
         }
 
-        public void Update(int id, string first, string last, string username, string password, byte[] image) {
+        public void Update(int id, string first, string last, string username, string password, byte[] image, List<Role> roles) {
             if (id != ID) {
                 return;
             }
@@ -69,12 +72,13 @@ namespace RegistrationLogin {
             Username = username;
             Password = password;
             AccountPicture = image;
+            Roles = roles;
 
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("User.Update"));
         }
 
-        public void Update(User user) {
-            Update(user.ID, user.FirstName, user.LastName, user.Username, user.Password, user.AccountPicture);
+        public void Update(User modified) {
+            Update(modified.ID, modified.FirstName, modified.LastName, modified.Username, modified.Password, modified.AccountPicture, modified.Roles);
         }
 
         public bool ValidateCredentials(string username, string password) {

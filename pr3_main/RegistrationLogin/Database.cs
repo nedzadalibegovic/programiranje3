@@ -6,90 +6,75 @@ using System.Windows.Forms;
 namespace RegistrationLogin {
     static class Database {
         public static BindingSource Users { get; set; } = new BindingSource();
+        public static BindingSource Roles { get; set; } = new BindingSource();
+        private static RLDbContext Context { get; set; } = new RLDbContext();
         private static string LastQuery { get; set; }
 
         public static event Action<User> UserLoggedIn;
-        public static event Action UserRegistered;
-        public static event Action UserUpdated;
+        public static event Action UsersChanged;
 
         static Database() {
-            using (var context = new RLDbContext()) {
-                Users.DataSource = context.Users.ToList();
-            }
+            Users.DataSource = Context.Users.ToList();
+            Roles.DataSource = Context.Roles.ToList();
 
-            UserRegistered += OnChange;
-            UserUpdated += OnChange;
+            UsersChanged += () => Query(LastQuery);
         }
 
-        private static void OnChange() {
-            using (var context = new RLDbContext()) {
-                Query(LastQuery);
-            }
+        public static void Register(string first, string last, string username, string password, byte[] picture, List<Role> roles) {
+            User user = new User() {
+                FirstName = first,
+                LastName = last,
+                Username = username,
+                Password = password,
+                AccountPicture = picture,
+                Roles = roles
+            };
+
+            Context.Users.Add(user);
+            Context.SaveChanges();
+
+            UsersChanged?.Invoke();
         }
 
-        public static void Register(string first, string last, string username, string password, byte[] picture) {
-            using (var context = new RLDbContext()) {
-                User user = new User() {
-                    FirstName = first,
-                    LastName = last,
-                    Username = username,
-                    Password = password,
-                    AccountPicture = picture
-                };
+        public static void Update(int id, User modifiedUser) {
+            var found = Context.Users.Find(id);
 
-                context.Users.Add(user);
-                context.SaveChanges();
+            found?.Update(modifiedUser);
 
-                UserRegistered?.Invoke();
-            }
-        }
+            Context.SaveChanges();
 
-        public static void Update(int id, User user) {
-            using (var context = new RLDbContext()) {
-                var found = context.Users.Find(id);
-
-                found?.Update(user);
-                context.SaveChanges();
-
-                UserUpdated?.Invoke();
-            }
+            UsersChanged?.Invoke();
         }
 
         public static bool TryGetUser(int id, out User user) {
-            using (var context = new RLDbContext()) {
-                var found = context.Users.Find(id);
+            var found = Context.Users.Find(id);
 
-                if (found != null) {
-                    user = new User(found);
-                } else {
-                    user = null;
-                }
-
-                return user != null;
+            if (found != null) {
+                user = new User(found);
+            } else {
+                user = null;
             }
+
+            return user != null;
         }
 
         public static User Login(string username, string password) {
-            using (var context = new RLDbContext()) {
-                int id = ((List<User>)Users.DataSource).SingleOrDefault(x => x.ValidateCredentials(username, password))?.ID ?? -1;
+            int id = Context.Users.SingleOrDefault(x => x.ValidateCredentials(username, password))?.ID ?? -1;
 
-                if (TryGetUser(id, out User user)) {
-                    UserLoggedIn?.Invoke(user);
-                }
-
-                return user;
+            if (TryGetUser(id, out User user)) {
+                UserLoggedIn?.Invoke(user);
             }
+
+            return user;
         }
 
         public static void Query(string query) {
             LastQuery = query;
 
-            using (var context = new RLDbContext()) {
-                if (string.IsNullOrEmpty(query)) {
-                    Users.DataSource = context.Users.ToList();
-                } else {
-                    Users.DataSource = context.Users.Where(user => user.FirstName.ToLower().Contains(query.ToLower()) || user.LastName.ToLower().Contains(query.ToLower())).ToList();
-                }
+            if (string.IsNullOrEmpty(query)) {
+                Users.DataSource = Context.Users.ToList();
+            } else {
+                Users.DataSource = Context.Users.Where(user => user.FirstName.ToLower().Contains(query.ToLower()) || user.LastName.ToLower().Contains(query.ToLower())).ToList();
             }
         }
     }

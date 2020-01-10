@@ -39,6 +39,8 @@
             this.picImage = new System.Windows.Forms.PictureBox();
             this.btnLoadImage = new System.Windows.Forms.Button();
             this.fileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.clbRoles = new System.Windows.Forms.CheckedListBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picImage)).BeginInit();
             this.SuspendLayout();
@@ -46,7 +48,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 12);
+            this.label1.Location = new System.Drawing.Point(9, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 0;
@@ -54,14 +56,14 @@
             // 
             // txtFirst
             // 
-            this.txtFirst.Location = new System.Drawing.Point(25, 28);
+            this.txtFirst.Location = new System.Drawing.Point(12, 30);
             this.txtFirst.Name = "txtFirst";
             this.txtFirst.Size = new System.Drawing.Size(169, 20);
             this.txtFirst.TabIndex = 0;
             // 
             // txtLast
             // 
-            this.txtLast.Location = new System.Drawing.Point(25, 77);
+            this.txtLast.Location = new System.Drawing.Point(12, 76);
             this.txtLast.Name = "txtLast";
             this.txtLast.Size = new System.Drawing.Size(169, 20);
             this.txtLast.TabIndex = 1;
@@ -69,7 +71,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 61);
+            this.label2.Location = new System.Drawing.Point(9, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 2;
@@ -77,7 +79,7 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(25, 126);
+            this.txtUsername.Location = new System.Drawing.Point(12, 120);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(169, 20);
             this.txtUsername.TabIndex = 2;
@@ -85,7 +87,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 110);
+            this.label3.Location = new System.Drawing.Point(9, 104);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 13);
             this.label3.TabIndex = 4;
@@ -93,7 +95,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(25, 175);
+            this.txtPassword.Location = new System.Drawing.Point(12, 164);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(169, 20);
             this.txtPassword.TabIndex = 3;
@@ -102,7 +104,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 159);
+            this.label4.Location = new System.Drawing.Point(9, 148);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 13);
             this.label4.TabIndex = 6;
@@ -110,7 +112,7 @@
             // 
             // txtConfirm
             // 
-            this.txtConfirm.Location = new System.Drawing.Point(25, 224);
+            this.txtConfirm.Location = new System.Drawing.Point(12, 208);
             this.txtConfirm.Name = "txtConfirm";
             this.txtConfirm.Size = new System.Drawing.Size(169, 20);
             this.txtConfirm.TabIndex = 4;
@@ -119,7 +121,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(22, 208);
+            this.label5.Location = new System.Drawing.Point(9, 192);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(94, 13);
             this.label5.TabIndex = 8;
@@ -127,9 +129,9 @@
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(25, 400);
+            this.btnRegister.Location = new System.Drawing.Point(12, 262);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(169, 43);
+            this.btnRegister.Size = new System.Drawing.Size(356, 40);
             this.btnRegister.TabIndex = 5;
             this.btnRegister.Text = "Submit";
             this.btnRegister.UseVisualStyleBackColor = true;
@@ -143,7 +145,7 @@
             // 
             this.picImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picImage.Location = new System.Drawing.Point(25, 255);
+            this.picImage.Location = new System.Drawing.Point(199, 122);
             this.picImage.Name = "picImage";
             this.picImage.Size = new System.Drawing.Size(169, 105);
             this.picImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -152,7 +154,7 @@
             // 
             // btnLoadImage
             // 
-            this.btnLoadImage.Location = new System.Drawing.Point(25, 366);
+            this.btnLoadImage.Location = new System.Drawing.Point(199, 233);
             this.btnLoadImage.Name = "btnLoadImage";
             this.btnLoadImage.Size = new System.Drawing.Size(169, 23);
             this.btnLoadImage.TabIndex = 10;
@@ -164,11 +166,30 @@
             // 
             this.fileDialog.FileName = "fileDialog";
             // 
+            // clbRoles
+            // 
+            this.clbRoles.FormattingEnabled = true;
+            this.clbRoles.Location = new System.Drawing.Point(199, 30);
+            this.clbRoles.Name = "clbRoles";
+            this.clbRoles.Size = new System.Drawing.Size(169, 79);
+            this.clbRoles.TabIndex = 11;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(196, 14);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(37, 13);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Roles:";
+            // 
             // frmRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(219, 453);
+            this.ClientSize = new System.Drawing.Size(380, 314);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.clbRoles);
             this.Controls.Add(this.btnLoadImage);
             this.Controls.Add(this.picImage);
             this.Controls.Add(this.btnRegister);
@@ -214,5 +235,7 @@
         private System.Windows.Forms.Button btnLoadImage;
         private System.Windows.Forms.PictureBox picImage;
         private System.Windows.Forms.OpenFileDialog fileDialog;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckedListBox clbRoles;
     }
 }
