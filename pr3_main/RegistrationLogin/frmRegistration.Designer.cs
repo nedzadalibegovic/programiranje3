@@ -36,11 +36,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnRegister = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.picImage = new System.Windows.Forms.PictureBox();
             this.btnLoadImage = new System.Windows.Forms.Button();
             this.fileDialog = new System.Windows.Forms.OpenFileDialog();
             this.clbRoles = new System.Windows.Forms.CheckedListBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnReport = new System.Windows.Forms.Button();
+            this.picImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picImage)).BeginInit();
             this.SuspendLayout();
@@ -141,17 +142,6 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
-            // picImage
-            // 
-            this.picImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picImage.Location = new System.Drawing.Point(199, 122);
-            this.picImage.Name = "picImage";
-            this.picImage.Size = new System.Drawing.Size(169, 105);
-            this.picImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picImage.TabIndex = 9;
-            this.picImage.TabStop = false;
-            // 
             // btnLoadImage
             // 
             this.btnLoadImage.Location = new System.Drawing.Point(199, 233);
@@ -183,11 +173,33 @@
             this.label6.TabIndex = 12;
             this.label6.Text = "Roles:";
             // 
+            // btnReport
+            // 
+            this.btnReport.Location = new System.Drawing.Point(12, 233);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(169, 23);
+            this.btnReport.TabIndex = 13;
+            this.btnReport.Text = "Generate report...";
+            this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
+            // 
+            // picImage
+            // 
+            this.picImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picImage.Location = new System.Drawing.Point(199, 122);
+            this.picImage.Name = "picImage";
+            this.picImage.Size = new System.Drawing.Size(169, 105);
+            this.picImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picImage.TabIndex = 9;
+            this.picImage.TabStop = false;
+            // 
             // frmRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(380, 314);
+            this.Controls.Add(this.btnReport);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.clbRoles);
             this.Controls.Add(this.btnLoadImage);
@@ -237,5 +249,6 @@
         private System.Windows.Forms.OpenFileDialog fileDialog;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckedListBox clbRoles;
+        private System.Windows.Forms.Button btnReport;
     }
 }

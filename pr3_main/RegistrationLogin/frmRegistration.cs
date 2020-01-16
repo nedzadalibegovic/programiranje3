@@ -14,6 +14,10 @@ namespace RegistrationLogin {
             clbRoles.DataSource = Database.Roles;
 
             SentUser = sentUser;
+
+            if (SentUser == null) {
+                btnReport.Hide();
+            }
         }
 
         private void btnRegister_Click(object sender, EventArgs e) {
@@ -78,6 +82,12 @@ namespace RegistrationLogin {
                 if (SentUser?.Roles?.Find(x => x.ID == role.ID) != null) {
                     clbRoles.SetItemChecked(i, true);
                 }
+            }
+        }
+
+        private void btnReport_Click(object sender, EventArgs e) {
+            using (var frm = new frmReport(SentUser)) {
+                frm.ShowDialog();
             }
         }
     }
