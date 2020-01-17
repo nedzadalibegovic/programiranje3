@@ -5,8 +5,10 @@ using System.Windows.Forms;
 
 namespace RegistrationLogin {
     public partial class mdiMain : Form {
+        private frmSplash SplashScreen { get; set; } = new frmSplash();
+
         public mdiMain() {
-            ShowSplashScreen();
+            Task.Run(SplashScreen.ShowDialog);
             InitializeComponent();
 
             Database.UserLoggedIn += Database_UserLoggedIn;
@@ -17,14 +19,10 @@ namespace RegistrationLogin {
 
             TopMost = true;
             Load += (object sender, EventArgs e) => { TopMost = false; };
-        }
 
-        private async void ShowSplashScreen() {
-            await Task.Run(() => {
-                using (var splash = new frmSplash()) {
-                    splash.ShowDialog();
-                }
-            });
+            if (SplashScreen.InvokeRequired) {
+                SplashScreen.Invoke(new MethodInvoker(SplashScreen.Close));
+            }
         }
 
         private void Database_UserLoggedIn(User obj) {

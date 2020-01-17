@@ -12,7 +12,6 @@ namespace RegistrationLogin {
     public partial class frmSplash : Form {
         public frmSplash() {
             InitializeComponent();
-            timerClose.Start();
         }
 
         private void frmSplash_Load(object sender, EventArgs e) {
@@ -21,7 +20,6 @@ namespace RegistrationLogin {
             timerFade.Tick += new EventHandler(fadeIn);
             timerFade.Start();
         }
-
 
         private void frmSplash_FormClosing(object sender, FormClosingEventArgs e) {
             e.Cancel = true;
@@ -50,11 +48,6 @@ namespace RegistrationLogin {
             } else {
                 Opacity -= 0.05;
             }
-        }
-
-        private void timerClose_Tick(object sender, EventArgs e) {
-            timerClose.Stop();
-            Close();
         }
     }
 }

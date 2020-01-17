@@ -24,14 +24,8 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            this.timerClose = new System.Windows.Forms.Timer(this.components);
             this.timerFade = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
-            // 
-            // timerClose
-            // 
-            this.timerClose.Interval = 2000;
-            this.timerClose.Tick += new System.EventHandler(this.timerClose_Tick);
             // 
             // timerFade
             // 
@@ -60,8 +54,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Timer timerClose;
         private System.Windows.Forms.Timer timerFade;
     }
 }
